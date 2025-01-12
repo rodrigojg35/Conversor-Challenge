@@ -82,4 +82,14 @@ public class Conversor {
         return pesoValue / tasas.COP();
     }
 
+    public static double changeDollarToMexicanPeso(double dollarValue) {
+        return dollarValue * tasas.MXN();
+    }
+
+    public static double changeMexicanPesoToDollar(double pesoValue) {
+        return pesoValue / tasas.MXN();
+    }
+
+
+
 }

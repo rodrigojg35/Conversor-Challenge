@@ -44,7 +44,8 @@ public record Tasas(
         double EGP,
         double ERN,
         double ETB,
-        double EUR
+        double EUR,
+        double MXN
 
 ) {
 }

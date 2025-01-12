@@ -8,6 +8,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        // CREADO POR RODRIGO JURADO GONZÁLEZ
+        System.out.println("****************************************");
+        System.out.println("Sea bienvenido al conversor de monedas:");
+        System.out.println("****************************************");
         Scanner scanner = new Scanner(System.in);
         int opcionMoneda;
         double valorAConvertir;
@@ -15,9 +19,7 @@ public class Main {
 
         while(true){
 
-            System.out.println("****************************************");
 
-            System.out.println("Sea bienvenido al conversor de monedas:");
             System.out.println();
             System.out.println("Las opciones disponibles son:");
             System.out.println("1) Dólar =>> Peso argentino");
@@ -26,15 +28,24 @@ public class Main {
             System.out.println("4) Real brasileño =>> Dólar");
             System.out.println("5) Dólar =>> Peso colombiano");
             System.out.println("6) Peso colombiano =>> Dólar");
-            System.out.println("7) Salir");
+            System.out.println("7) Dólar =>> Peso Mexicano");
+            System.out.println("8) Peso Mexicano =>> Dólar");
+            System.out.println("9) Salir");
             System.out.println("Elija una opción válida: ");
 
             System.out.println("****************************************");
 
-            System.out.print("--> ");
-            opcionMoneda = scanner.nextInt();
+            while(true) {
+                System.out.print("--> ");
+                opcionMoneda = scanner.nextInt();
+                if(opcionMoneda >= 1 && opcionMoneda <= 9) {
+                    break;
+                } else {
+                    System.out.println("Opción no válida, por favor elija una opción entre 1 y 9.");
+                }
+            }
 
-            if(opcionMoneda == 7){
+            if(opcionMoneda == 9){
                 System.out.println("Gracias por usar el conversor de monedas");
                 break;
             }
@@ -43,6 +54,7 @@ public class Main {
             System.out.print("-  ");
             valorAConvertir = scanner.nextDouble();
 
+            System.out.println("Convirtiendo...");
             switch(opcionMoneda){
                 case 1:
                     resultadoConversion = Conversor.changeDollarToArgentinianPeso(valorAConvertir);
@@ -68,10 +80,17 @@ public class Main {
                     resultadoConversion = Conversor.changeColombianPesoToDollar(valorAConvertir);
                     System.out.println("El valor de " + valorAConvertir + " pesos colombianos es de " + resultadoConversion + " dólares");
                     break;
-                default:
-                    System.out.println("La opción ingresada no es válida");
+                case 7:
+                    resultadoConversion = Conversor.changeDollarToMexicanPeso(valorAConvertir);
+                    System.out.println("El valor de " + valorAConvertir + " dólares es de " + resultadoConversion + " pesos mexicanos");
+                    break;
+                case 8:
+                    resultadoConversion = Conversor.changeMexicanPesoToDollar(valorAConvertir);
+                    System.out.println("El valor de " + valorAConvertir + " pesos mexicanos es de " + resultadoConversion + " dólares");
+                    break;
             }
 
+            System.out.println("Volviendo a mostrar las opciones disponibles...");
 
 
         };
